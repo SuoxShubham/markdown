@@ -43,10 +43,9 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "markdown",
       filename: "remoteEntry.js",
-      remotes: {
-        container: "container@http://localhost:4001/remoteEntry.js"
+      exposes: {
+        "./App": "./src/App"
       },
-      exposes: {},
       shared: {
         ...deps,
         react: {
